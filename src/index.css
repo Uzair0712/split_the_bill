@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap");
+/* Some CSS RESETS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #334155;
+}
+html {
+  font-size: 62.5%;
+  font-family: "roboto";
+}
+
+/* Utility Button */
+.btn {
+  border: none;
+  background-color: #3b82f6;
+  font-size: 1.8rem;
+  padding: 1rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn:hover {
+  background-color: #1d4ed8;
+}
+
+.app {
+  width: 75vw;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  padding: 10rem 3rem ;
+  
+}
+input {
+  text-align: center;
+}
+
+/* For the left Container of the application */
+.left-container {
+  width: 50rem;
+  border-radius: 10px;
+  position: relative;
+  padding: 2.5rem;
+  align-self: flex-start;
+}
+
+/* For the Friend Component */
+.friend {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 1rem;
+  font-size: 2rem;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 0.4rem 0;
+}
+.friend:hover {
+  background-color: #dbeafe;
+}
+.friend img {
+  height: 60px;
+  border-radius: 50%;
+}
+.friend h4,
+.friend p {
+  padding: 0.2em 0;
+}
+.friend h4 {
+  font-size: 2.3rem;
+  font-weight: 500;
+}
+.friend p {
+  font-weight: 400;
+}
+
+/* For the AddFriend form */
+.add-friend {
+  width: 100%;
+  font-size: 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: #dbeafe;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2.5rem 0rem;
+}
+.add-friend * {
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.9rem;
+  color: inherit;
+}
+.add-friend label {
+  font-weight: 500;
+}
+.add-friend .btn {
+  grid-column-start: 2;
+}
+.add-friend input,
+.right-container form input {
+  color: #475569;
+}
+.left-container > .btn {
+  position: absolute;
+  right: 3.5rem;
+  bottom: -4rem;
+}
+
+/* For Right Container */
+.right-container {
+  width: 55rem;
+  background-color: #dbeafe;
+  border-radius: 10px;
+  padding: 5rem;
+  align-self: flex-start;
+}
+.right-container h2 {
+  font-size: 3rem;
+  margin-bottom: 5rem;
+  text-transform: uppercase;
+}
+.right-container form {
+  border-radius: 10px;
+  background-color: #dbeafe;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2.5rem 0rem;
+}
+
+.right-container form * {
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 2.1rem;
+  color: inherit;
+}
+.right-container form input,
+.right-container form select {
+  width: 15rem;
+}
+.right-container .btn {
+  grid-column-start: 2;
+}
+
+@media (width < 640px) {
+  .app {
+    flex-direction: column;
+    background-color: #3b82f6;
+  }
+  .left-container {
+    min-width: 85%;
+  }
+  .right-container {
+    max-width: 85%;
+  }
+  .right-container form {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
