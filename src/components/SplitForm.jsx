@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "./Button";
 
-function SplitForm({ currentFriend, onSplitBill, setIsFormOpen }) {
+function SplitForm({ currentFriend, onSplitBill }) {
   const { name } = currentFriend;
   const [billAmount, setBillAmount] = useState("");
   const [yourExpense, setYourExpense] = useState("");
@@ -11,17 +11,18 @@ function SplitForm({ currentFriend, onSplitBill, setIsFormOpen }) {
     e.preventDefault();
     if (!billAmount || !yourExpense) return;
     const FriendBill = billAmount - yourExpense;
+    let updatedFriend;
     if (payer === "you")
-      onSplitBill({
+      updatedFriend = {
         ...currentFriend,
         balance: currentFriend.balance + FriendBill,
-      });
+      };
     if (payer === "friend")
-      onSplitBill({
+      updatedFriend = {
         ...currentFriend,
         balance: currentFriend.balance - yourExpense,
-      });
-    setIsFormOpen(false);
+      };
+    onSplitBill(updatedFriend);
   }
   return (
     <div className="right-container">

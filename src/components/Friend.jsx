@@ -1,17 +1,7 @@
 import Button from "./Button";
 
-function Friend({
-  friend,
-  onSplitForm,
-  isFormOpen,
-  currentFriend,
-  onCurrentFriend,
-  onAddForm,
-  isAddOpen,
-}) {
+function Friend({ friend, currentFriend, setCurrentFriend }) {
   const { name, image, balance } = friend;
-
-  console.log(currentFriend.id === friend.id);
 
   let message, color;
   if (balance === 0) message = `You and ${name} are even`;
@@ -24,23 +14,16 @@ function Friend({
     color = "red";
   }
   return (
-    <div className="friend">
-      <img src={image} alt="friend's image" />
+    <li className={`friend ${currentFriend === friend && "selected"}`}>
+      <img src={image} alt="avatar" />
       <div>
         <h4 className="name">{name}</h4>
         <p style={{ color: color }}>{message}</p>
       </div>
-      <Button
-        onClick={() => {
-          onCurrentFriend(friend);
-          if (friend.id !== currentFriend?.id && currentFriend.id) return;
-          onSplitForm((open) => !open);
-          isAddOpen && onAddForm(false);
-        }}
-      >
-        {isFormOpen && currentFriend.id === friend.id ? "close" : "Select"}
+      <Button onClick={() => setCurrentFriend(friend)}>
+        {currentFriend === friend ? "Close" : "Select"}
       </Button>
-    </div>
+    </li>
   );
 }
 
