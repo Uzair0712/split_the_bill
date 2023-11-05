@@ -1,38 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FriendList from "./components/FriendList";
 import SplitForm from "./components/SplitForm";
 import Button from "./components/Button";
 import AddFriend from "./components/AddFriend";
 import SideBar from "./components/SideBar";
 
-const fakeData = [
-  {
-    name: "Anthony",
-    image: "https://i.pravatar.cc/48?=dfjdfjdlf",
-    balance: 10,
-    id: 1,
-  },
-  {
-    name: "Hashim",
-    image: "https://i.pravatar.cc/48?=dfdjfjdfldf",
-    balance: 0,
-    id: 2,
-  },
-  {
-    name: "Aamir",
-    image: "https://i.pravatar.cc/48?=ernerwen",
-    balance: -15,
-    id: 3,
-  },
-];
+// const fakeData = [
+//   {
+//     name: "Anthony",
+//     image: "https://i.pravatar.cc/48?=dfjdfjdlf",
+//     balance: 10,
+//     id: 1,
+//   },
+//   {
+//     name: "Hashim",
+//     image: "https://i.pravatar.cc/48?=dfdjfjdfldf",
+//     balance: 0,
+//     id: 2,
+//   },
+//   {
+//     name: "Aamir",
+//     image: "https://i.pravatar.cc/48?=ernerwen",
+//     balance: -15,
+//     id: 3,
+//   },
+// ];
 
 function App() {
-  const [friends, setFriends] = useState(fakeData);
+  const [friends, setFriends] = useState([]);
   const [openAddFriend, setOpenAddFriend] = useState(false);
   const [currentFriend, setCurrentFriend] = useState(null);
 
   function handleAddFriend(friend) {
-    setFriends((friends) => [...friends, friend]);
+    setFriends((friends) => {
+      localStorage.setItem("friends", JSON.stringify([...friends, friend]));
+      return [...friends, friend];
+    });
+
     setOpenAddFriend(false);
   }
 
@@ -42,6 +46,9 @@ function App() {
     );
     setCurrentFriend(null);
   }
+  useEffect(function () {
+    setFriends(JSON.parse(localStorage.getItem("friends")) || []);
+  },[]);
 
   function handleCurrentFriend(friend) {
     setCurrentFriend((cur) => (cur === friend ? null : friend));

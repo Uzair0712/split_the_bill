@@ -6,9 +6,9 @@ function FriendList({ friends, currentFriend, setCurrentFriend }) {
       {friends.map((friend) => (
         <Friend
           friend={friend}
-          key={friend.id}
           currentFriend={currentFriend}
           setCurrentFriend={setCurrentFriend}
+          key={friend.id}
         />
       ))}
     </ul>

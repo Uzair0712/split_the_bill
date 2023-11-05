@@ -8,7 +8,7 @@ function AddFriend({ onAddFriend }) {
   function addFriend(e) {
     e.preventDefault();
     if (!name || !image) return;
-    const id = crypto.randomUUID;
+    const id = crypto.randomUUID();
     onAddFriend({ name, image: `${image}?=${id}`, balance: 0, id });
     setName("");
     setImage("https://i.pravatar.cc/48");
