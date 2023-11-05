@@ -1,8 +1,4 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Split the Bill
+A small react app where you can add your friend and go out for anything. You can split the bill with your friend and then according to who paid the bill the mutual balance will be shown, sying who owes how much money.
+I have added the functionality to store the friend data in the local storage of the browser, so next time user will get all the friend ready to split the bill.
+There exist a functionality to add friend, however I want to add the functionality to delete the friend as well. Which I am planning to do in future.
